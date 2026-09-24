@@ -53,9 +53,7 @@ Mosaico de dNBR calculado a partir de imágenes Sentinel-2 pre y post incendio, 
 eventos de la muestra. La clasificación de severidad sigue los umbrales USGS (sin cambio,
 baja, moderada-baja, moderada-alta, alta).
 
-[Mapa erosion_severidad.pdf](https://github.com/user-attachments/files/32622908/Mapa.erosion_severidad.pdf)
-
-
+<img width="1755" height="1240" alt="Mapa erosion_severidad_page-0001" src="https://github.com/user-attachments/assets/720a8d2b-5c49-4caa-a540-c48b26fd9d4b" />
 
 ### Potencial de erosión (RUSLE)
 
@@ -67,15 +65,15 @@ moderada-alta y alta (dNBR > 0.44).
 Clasificación de los píxeles de RUSLE (recortado 5% extremo) en quintiles, sobre las tres
 regiones de estudio. Ver `scripts/03_r/05_analisis_exploratorio_quintiles.R`.
 
-[MAPAquintiles (1).pdf](https://github.com/user-attachments/files/32621628/MAPAquintiles.1.pdf)
-
+<img width="1024" height="663" alt="1790276487315-33696e0c-7c97-4de5-a625-448493f5fba11_1" src="https://github.com/user-attachments/assets/93db705d-1fe8-4373-a1eb-d634b37ce7a8" />
 
 ### Relación entre severidad y erosión potencial
 
 Distribución de dNBR por quintil de RUSLE — la mediana de severidad aumenta de forma
 consistente desde Q1 hasta Q5.
 
-[BoxplotNBR (1).pdf](https://github.com/user-attachments/files/32621640/BoxplotNBR.1.pdf)
+<img width="1024" height="663" alt="1790276523993-11524cf2-4d12-42a6-8bc6-40f1d27c9435_1" src="https://github.com/user-attachments/assets/e5b7a4da-f1cf-4644-b884-98f696ca3b8e" />
+
 
 
 | Quintil | Rango RUSLE (ton·ha⁻¹·año⁻¹) | dNBR medio |
