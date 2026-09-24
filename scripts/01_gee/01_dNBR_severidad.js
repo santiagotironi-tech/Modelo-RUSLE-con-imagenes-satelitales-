@@ -1,15 +1,15 @@
-// =============================================================================
+
 // 01 — CÁLCULO DE dNBR (SEVERIDAD DEL INCENDIO) CON SENTINEL-2
 //
 // Para cada uno de los 30 incendios (tabla "table" = BD_30IF.csv importado
 // como asset): construye un buffer proporcional al área quemada, calcula el
 // NBR pre y post incendio, y obtiene dNBR = NBR_pre - NBR_post. Exporta un
 // mosaico raster único de dNBR para las 30 áreas.
-// =============================================================================
 
-// -----------------------------------------------------------------------------
+
+
 // 1. CARGA DE INCENDIOS: convierte cada fila de la tabla en un punto (lat, lon)
-// -----------------------------------------------------------------------------
+
 var incendios = table.map(function(feature) {
   var featureObj = ee.Feature(feature);
   var lat = featureObj.getNumber('coord_operativas_lat');
@@ -20,9 +20,8 @@ var incendios = table.map(function(feature) {
 
 Map.centerObject(incendios, 7);
 
-// -----------------------------------------------------------------------------
+
 // 2. MÁSCARA DE NUBES (bits 10 y 11 de QA60) Y CÁLCULO DE NBR
-// -----------------------------------------------------------------------------
 // NBR = (NIR - SWIR2) / (NIR + SWIR2), usando las bandas B8 (NIR) y B12 (SWIR2).
 var maskS2 = function(img) {
   var qa = img.select('QA60');
@@ -64,9 +63,9 @@ var calcularNBRSentinel2 = function(buffer, inicio, fin) {
   ));
 };
 
-// -----------------------------------------------------------------------------
+
 // 3. PROCESAMIENTO PRINCIPAL POR INCENDIO
-// -----------------------------------------------------------------------------
+
 var procesarIncendio = function(feature) {
   var featureObj = ee.Feature(feature);
 
@@ -122,9 +121,9 @@ var procesarIncendio = function(feature) {
 
 var resultados30 = ee.FeatureCollection(incendios.map(procesarIncendio));
 
-// -----------------------------------------------------------------------------
+
 // 4. MOSAICO ÚNICO DE dNBR (recalculado por buffer, para exportar como raster)
-// -----------------------------------------------------------------------------
+
 var coleccionDNBR = ee.ImageCollection(
   resultados30.toList(30).map(function(feature) {
     var fObj = ee.Feature(feature);
@@ -143,9 +142,9 @@ var coleccionDNBR = ee.ImageCollection(
 
 var dNBRMosaico = coleccionDNBR.mosaic();
 
-// -----------------------------------------------------------------------------
+
 // 5. VISUALIZACIÓN (clasificación de severidad USGS)
-// -----------------------------------------------------------------------------
+
 var visParamDNBR = {
   min: -0.1, max: 0.66,
   palette: ['7a8738', '07e403', '96e403', 'fffd0c', 'e77001', 'e50600', '7b004c']
@@ -155,9 +154,9 @@ Map.addLayer(resultados30, {color: 'blue'}, 'Buffers (x5.5)');
 Map.addLayer(dNBRMosaico, visParamDNBR, 'dNBR Severidad');
 Map.addLayer(incendios, {color: 'red'}, 'Puntos Incendios');
 
-// -----------------------------------------------------------------------------
+
 // 6. EXPORTAR EL MOSAICO A GOOGLE DRIVE
-// -----------------------------------------------------------------------------
+
 var regionExport = resultados30.union(1).geometry();  // unión de los 30 buffers
 
 Export.image.toDrive({
