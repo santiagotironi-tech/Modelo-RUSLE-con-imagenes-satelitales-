@@ -26,8 +26,6 @@ Apoquindo, 29-12-2025).
    superficie), por vecino más cercano.
 5. **Extracción a nivel de píxel** (R): extracción de valores de RUSLE y dNBR dentro de cada
    cicatriz, recorte del 5% extremo, clasificación en quintiles, exportación por incendio.
-6. **Análisis** (en curso): relación cuantitativa RUSLE–dNBR por quintil; modelos GAM (`mgcv`) y
-   Random Forest (`ranger`) con validación espacial cruzada (`spatialsample`).
 
 ## Estructura del repositorio
 
@@ -92,10 +90,7 @@ terreno cordillerano extremo: pendientes cercanas al límite de 60% impuesto en 
 valores de LS ≈ 266, muy por encima de los valores típicos de zonas agrícolas para las que la
 fórmula fue calibrada originalmente. Esto produce estimaciones de RUSLE en cicatrices de
 400–4.539 ton·ha⁻¹·año⁻¹, superiores a los rangos reportados en literatura internacional de
-erosión post-incendio en cuencas mediterráneas (9–120 ton·ha⁻¹·año⁻¹). Este punto está siendo
-evaluado con el profesor guía; alternativas en consideración: acotar LS directamente, usar la
-formulación de McCool et al. (1987) para pendientes pronunciadas, o reportar los valores como un
-índice relativo de riesgo entre zonas.
+erosión post-incendio en cuencas mediterráneas (9–120 ton·ha⁻¹·año⁻¹). 
 
 ## Herramientas
 
