@@ -90,7 +90,7 @@ terreno cordillerano extremo: pendientes cercanas al límite de 60% impuesto en 
 valores de LS ≈ 266, muy por encima de los valores típicos de zonas agrícolas para las que la
 fórmula fue calibrada originalmente. Esto produce estimaciones de RUSLE en cicatrices de
 400–4.539 ton·ha⁻¹·año⁻¹, superiores a los rangos reportados en literatura internacional de
-erosión post-incendio en cuencas mediterráneas (9–120 ton·ha⁻¹·año⁻¹). 
+erosión post-incendio en cuencas mediterráneas. 
 
 ## Herramientas
 
