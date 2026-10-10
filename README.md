@@ -51,6 +51,9 @@ Mosaico de dNBR calculado a partir de imágenes Sentinel-2 pre y post incendio, 
 eventos de la muestra. La clasificación de severidad sigue los umbrales USGS (sin cambio,
 baja, moderada-baja, moderada-alta, alta).
 
+<img width="1198" height="1060" alt="0FA2160C-6A22-4BB1-83B5-720D58EE62C8_1_102_o" src="https://github.com/user-attachments/assets/08073ae2-fab7-4a34-98f0-ce6596c1971e" />
+
+
 <img width="1755" height="1240" alt="Mapa erosion_severidad_page-0001" src="https://github.com/user-attachments/assets/720a8d2b-5c49-4caa-a540-c48b26fd9d4b" />
 
 ### Potencial de erosión (RUSLE)
